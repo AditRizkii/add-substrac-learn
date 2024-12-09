@@ -4,8 +4,6 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-
-    // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -26,10 +24,14 @@ module.exports = {
       offwhite: " #FDFDFD",
       offblack: "#333333",
       red: "#FF605C",
-      purpleLight: "#80437B", // Variasi lebih terang dari purple
-      purpleDark: "#451246", // Variasi lebih gelap dari purple
-      yellow: "#FFD966", // Warna aksen
-      bgWhite: "#FFF5FA", // Background lembut untuk elemen
+      purpleLight: "#80437B",
+      purpleDark: "#451246",
+      yellow: "#FFD966",
+      bgWhite: "#FFF5FA",
+      bggreen: "#84cc16",
+      bgdarkgreen: "#16a34a",
+      redApple: "#FF5A5F", // Warna merah apel
+      monkeyBrown: "#8B4513", // Warna untuk animasi monyet (opsional)
     },
     fontFamily: {
       inter: ["Inter", "sans-serif"],
@@ -90,6 +92,16 @@ module.exports = {
     extend: {
       lineHeight: {
         "4px": "85px",
+      },
+      animation: {
+        "apple-eating": "eating 2s ease-in-out",
+      },
+      keyframes: {
+        eating: {
+          "0%": { transform: "scale(1)" },
+          "50%": { transform: "scale(0.5)", opacity: "0.7" },
+          "100%": { transform: "scale(0)", opacity: "0" },
+        },
       },
     },
   },

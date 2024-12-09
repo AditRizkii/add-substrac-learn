@@ -1,11 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import Quiz from "../components/Courses/Quiz";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 export default function Home() {
   const [showQuiz, setShowQuiz] = useState(false);
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const contohSoal = {
     penjumlahan: [
@@ -138,12 +139,20 @@ export default function Home() {
               </div>
             </div>
 
-            <button
-              onClick={() => setShowQuiz(true)}
-              className="block mt-6 mx-auto bg-purple text-white px-6 py-2 rounded-lg text-lg shadow-lg hover:bg-purpleDark"
-            >
-              Mulai Latihan
-            </button>
+            <div className="flex flex-col md:flex-row gap-4 justify-center mt-6">
+              <button
+                onClick={() => setShowQuiz(true)}
+                className="bg-purple text-white px-6 py-2 rounded-lg text-lg shadow-lg hover:bg-purpleDark"
+              >
+                Mulai Latihan
+              </button>
+              <button
+                onClick={() => router.push("/apple-quiz")}
+                className="bg-green text-white px-6 py-2 rounded-lg text-lg shadow-lg hover:bg-bgdarkgreen"
+              >
+                Latihan Apel
+              </button>
+            </div>
           </div>
         ) : (
           <Quiz onBack={() => setShowQuiz(false)} />
